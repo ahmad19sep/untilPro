@@ -5,17 +5,21 @@ public class TokenizingStrings {
 
     public static void main(String[] args) {
         String sentence=scanner.nextLine();
-        String[] token=sentence.split(" ");
-        char ch;
-        char a;
-
-        for (int i=0; i<token.length; i++){
-            ch=token[i].charAt(0);
-            sentence=token[i].substring(0,1).toUpperCase();
-            a=sentence.charAt(0);
-            if (a==ch){
-                System.out.println(token[i]);
+        char ch=scanner.next().charAt(0);
+      int index=  indeexOf(sentence,ch);
+        System.out.println(ch+" is on index "+index);
+        }
+        static int indeexOf(String s,char chr){
+        int index=-1;
+        for (int i=0; i<s.length();i++){
+            char ch=s.charAt(i);
+            if (ch==chr){
+               index=i;
+               break;
             }
         }
+        return index;
+        }
     }
-}
+
+
