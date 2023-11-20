@@ -1,18 +1,21 @@
-public class Questions
-{
-    public static void main(String[] args) {
-        String stn="Longest wordkkkkkk in the sentence";
-        String[] str=stn.split(" ");
-        int lng=str[0].length();
-        int ch=0;
-        for (int i=0; i<str.length; i++){
+import java.util.Scanner;
 
-            if (str[i].length()>lng){
-                lng=str[i].length();
-                ch=i;
+public class Questions {
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        String stn = "Longest wordkkkkkk in the sentence";
+        char ch = 'k';
+        int count = 0;
+        for (int i = 0; i < stn.length(); i++) {
+            int chd = stn.indexOf('o', i);
+            if (chd > 0) {
+                count++;
+                i = chd;
             }
         }
-        System.out.println(str[ch]);
+        System.out.println("Most number of times a word occur is : " + count);
     }
+
 }
 
