@@ -12,6 +12,7 @@ public class Wordfrequency {
         process(sentence, count, lt);
         display(count, lt);
 
+
     }
 
     static int frequency(char ch, String stn) {
@@ -27,13 +28,18 @@ public class Wordfrequency {
     }
 
     static void display(int[] count, char[] lt) {
+
+characterSortingFun(lt,count);
+int total=0;
         System.out.println("-----------------------------");
         for (int i = 0; i < lt.length; i++) {
             if (count[i] != 0) {
+                total+=count[i];
                 System.out.printf("| %c \t<-_-> \t%d \t times |\n", lt[i], count[i]);
             }
         }
         System.out.println("----------------------------");
+        totalWords(total);
     }
 
     static String input() {
@@ -61,6 +67,39 @@ public class Wordfrequency {
                 count[incremnt] = count1;
             incremnt++;
         }
+    }
+
+
+    static void characterSortingFun(char[] ary,int[] count) {
+
+
+        for (int i = 0; i < ary.length; i++) {
+            for (int j = i + 1; j < ary.length; j++) {
+                if (ary[i] > ary[j]) {
+                    swap(ary,i,j);
+                    swap(count,i,j);
+
+                }
+
+            }
+        }
+    }
+    static void swap(char[] ary,int i,int j){
+        char temp;
+        temp = ary[i];
+        ary[i] = ary[j];
+        ary[j] = temp;
+    }
+    static void swap(int[] count,int i,int j){
+        int temp;
+        temp = count[i];
+        count[i] = count[j];
+        count[j] = temp;
+    }
+    static void totalWords(int i){
+        int total =0;
+        total +=i;
+        System.out.println("Total words is : "+ total);
     }
 }
 
