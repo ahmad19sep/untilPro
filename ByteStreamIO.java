@@ -1,26 +1,23 @@
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class ByteStreamIO {
-    public static void main(String[] args)  throws IOException {
+    static Scanner scanner=new Scanner(System.in);
+    public static void main(String[] args)  throws IOException, FileNotFoundException {
         FileReader reader=null;
+        FileWriter writer=null;
+        System.out.println("Enter the data you want to  write in the file: ");
+        String data=scanner.nextLine();
+
+
+
         try {
-            reader=new FileReader("input.txt");
-            int  i=0;
-            i=reader.read();
-            while (i!=-1){
-                System.out.print((char)i+"");
-                i=reader.read();
+            writer=new FileWriter("input.txt");
+            writer.write(data);
 
-
-
-
-            }
         }finally {
-            assert reader != null;
-            reader.close();
+            assert writer != null;
+            writer.close();
         }
 
 
